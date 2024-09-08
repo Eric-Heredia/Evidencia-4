@@ -1,1 +1,2 @@
-# Evidencia-4-Eric.Heredia
+# Evidencia-4
+# Repositorio destinado a la resolución de los desafíos de la Evidencia de  aprendizaje 4 de los espacios curriculares de Programación I y Base de Datos de la Tecnicatura Superior en Desarrollo de Software perteneciente al Instituto Superior Politécnico Córdoba.
