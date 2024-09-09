@@ -1,29 +1,44 @@
 class MaquinaFototerapia:
-    def __init__(self, potencia_maxima):
-        self.encendida = False
-        self.intensidad = 0
-        self.potencia_maxima = potencia_maxima
-        self.tiempo_sesion = 0
+    def __init__(self, id, potenciaMaxima):
+        self._id = id
+        self._encendida = False
+        self._intensidad = 0
+        self._potenciaMaxima = potenciaMaxima
+        self._tiempoSesion = 0
 
     def encender(self):
-        self.encendida = True
+        self._encendida = "ON"
+
 
     def apagar(self):
-        self.encendida = False
+        self._encendida = "OFF"
+        
 
-    def ajustar_intensidad(self, nueva_intensidad):
-        if 0 <= nueva_intensidad <= self.potencia_maxima:
-            self.intensidad = nueva_intensidad
+    def ajustarIntensidad(self, nuevaIntensidad):
+        if 0 <= nuevaIntensidad <= self._potenciaMaxima:
+            self._intensidad = nuevaIntensidad
         else:
             raise ValueError("Intensidad fuera de rango.")
 
-    def obtener_estado(self):
+    def obtenerEstado(self):
         return {
-            "encendida": self.encendida,
-            "intensidad": self.intensidad,
-            "potencia_maxima": self.potencia_maxima,
-            "tiempo_sesion": self.tiempo_sesion,
+            "encendida": self._encendida,
+            "intensidad": self._intensidad,
+            "potenciaMaxima": self._potenciaMaxima,
+            "tiempoSesion": self._tiempoSesion,
         }
 
     def __str__(self):
-        return f"Máquina de fototerapia: Encendida: {self.encendida}, su Intensidad es: {self.intensidad}, y la Potencia máxima: {self.potencia_maxima}"
+        return f"Máquina de fototerapia {self._id} se encuentra {self._encendida}, su Intensidad es de: {self._intensidad}, y la Potencia máxima es: {self._potenciaMaxima}"
+
+# Crear objetos
+maquina1 = MaquinaFototerapia(1, 100)
+maquina2 = MaquinaFototerapia(2, 150)
+
+maquina1.encender()
+maquina2.encender()
+maquina1.ajustarIntensidad(80)
+maquina2.ajustarIntensidad(120)
+
+print(maquina1)
+print(maquina2)
