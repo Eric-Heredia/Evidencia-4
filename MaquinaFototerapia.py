@@ -34,11 +34,15 @@ class MaquinaFototerapia:
 # Crear objetos
 maquina1 = MaquinaFototerapia(1, 100)
 maquina2 = MaquinaFototerapia(2, 150)
+maquina3 = MaquinaFototerapia(3, 125)
 
 maquina1.encender()
 maquina2.encender()
+maquina3.encender()
 maquina1.ajustarIntensidad(80)
 maquina2.ajustarIntensidad(120)
+maquina3.ajustarIntensidad(100)
 
 print(maquina1)
 print(maquina2)
+print(maquina3)
