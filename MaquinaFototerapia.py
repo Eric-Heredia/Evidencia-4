@@ -1,9 +1,9 @@
 class MaquinaFototerapia:
     def __init__(self, id, potenciaMaxima):
         self._id = id
+        self._potenciaMaxima = potenciaMaxima
         self._encendida = False
         self._intensidad = 0
-        self._potenciaMaxima = potenciaMaxima
         self._tiempoSesion = 0
 
     def encender(self):
