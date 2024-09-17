@@ -7,18 +7,18 @@ class MaquinaFototerapia:
         self._tiempoSesion = 0
 
     def encender(self):
-        self._encendida = "ON"
+        self._encendida = True
 
 
     def apagar(self):
-        self._encendida = "OFF"
+        self._encendida = False
         
 
     def ajustarIntensidad(self, nuevaIntensidad):
-        if 0 <= nuevaIntensidad <= self._potenciaMaxima:
-            self._intensidad = nuevaIntensidad
-        else:
+        if not 0 <= nuevaIntensidad <= self._potenciaMaxima:
             raise ValueError("Intensidad fuera de rango.")
+        self._intensidad = nuevaIntensidad
+
 
     def obtenerEstado(self):
         return {
@@ -28,10 +28,14 @@ class MaquinaFototerapia:
             "tiempoSesion": self._tiempoSesion,
         }
 
-    def __str__(self):
-        return f"Máquina de fototerapia {self._id} se encuentra {self._encendida}, su Intensidad es de: {self._intensidad}, y la Potencia máxima es: {self._potenciaMaxima}"
 
-# Crear objetos
+    def __str__(self):
+        if self._encendida:
+            return f"Máquina de fototerapia {self._id} se encuentra ON, su Intensidad es de {self._intensidad} nm, y la Potencia máxima es {self._potenciaMaxima} nm."
+        else:
+            return f"Máquina de fototerapia {self._id} se encuentra OFF."
+
+
 maquina1 = MaquinaFototerapia(1, 100)
 maquina2 = MaquinaFototerapia(2, 150)
 maquina3 = MaquinaFototerapia(3, 125)
@@ -46,3 +50,7 @@ maquina3.ajustarIntensidad(100)
 print(maquina1)
 print(maquina2)
 print(maquina3)
+
+maquina2.apagar()
+
+print(maquina2)

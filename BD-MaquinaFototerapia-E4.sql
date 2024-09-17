@@ -1,5 +1,7 @@
 CREATE DATABASE ObjetoMaquinaFototerapia;
 
+USE ObjetoMaquinaFototerapia;
+
 CREATE TABLE Maquinas (
     id INT PRIMARY KEY,
     potenciaMaxima INT
